@@ -7,7 +7,7 @@ function getHoursImageData(date) {
     //canvas.setAttribute('height', size);
     var context = canvas.getContext('2d');
     //context.font = 'bold ' + (size * 0.67) + 'px \'Lucida Grande\'';
-	//context.font = '\'Arial\'';
+	context.font = 'bold';
     context.textAlign = 'center';
     //context.textBaseline = 'middle';
 	
@@ -16,7 +16,9 @@ function getHoursImageData(date) {
         dd = "p";
     }
 	
-    context.fillText((((date.getHours() + 11) % 12) + 1) ,size/2, size/3);
+	context.fillStyle="black";
+	
+    context.fillText((((date.getHours() + 11) % 12) + 1)+dd ,size/2, size/3+.5);
 	context.fillText(getMinutesText(date),size/2,size);
     
 	
