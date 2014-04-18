@@ -1,15 +1,26 @@
 function getHoursImageData(date) {
   function create(size) {
     var canvas = document.createElement('canvas');
-    canvas.textContent = (((date.getHours() + 11) % 12) + 1) + ':' + getMinutesText(date);
-    canvas.setAttribute('width', size);
-    canvas.setAttribute('height', size);
+	var h = date.getHours();
+    //canvas.textContent = ((; //+ ':' + getMinutesText(date);
+    //canvas.setAttribute('width', size);
+    //canvas.setAttribute('height', size);
     var context = canvas.getContext('2d');
-    context.font = 'bold ' + (size * 0.67) + 'px \'Lucida Grande\'';
+    //context.font = 'bold ' + (size * 0.67) + 'px \'Lucida Grande\'';
+	//context.font = '\'Arial\'';
     context.textAlign = 'center';
-    context.textBaseline = 'middle';
-    context.fillText((((date.getHours() + 11) % 12) + 1), size/2, size/3);
-    return context.getImageData(0, 0, size, size);
+    //context.textBaseline = 'middle';
+	
+	var dd = "a";
+    if (h >= 12) {
+        dd = "p";
+    }
+	
+    context.fillText((((date.getHours() + 11) % 12) + 1) ,size/2, size/3);
+	context.fillText(getMinutesText(date),size/2,size);
+    
+	
+	return context.getImageData(0, 0, size, size);
   }
   return {19: create(19), 38: create(38)};
 }
@@ -37,7 +48,7 @@ function update() {
   var now = new Date();
   var nearestMinute = quantizeMinutes(now).round;
   chrome.browserAction.setIcon({imageData: getHoursImageData(nearestMinute)});
-  chrome.browserAction.setBadgeText({text: getMinutesText(nearestMinute)});
+  //chrome.browserAction.setBadgeText({text: getMinutesText(nearestMinute)});
   chrome.browserAction.setTitle({title: String(now)});
 }
 

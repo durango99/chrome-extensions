@@ -5,15 +5,15 @@
   },
   "browser_action": {
     "default_icon": {
-      "19": "assets/infinity19.png",
-      "38": "assets/infinity38.png"
+      "19": "infinity.png",
+      "38": "infinity.png"
     }
   },
   "description": "A clock for your browser",
   "icons": {
-    "16": "assets/infinity16.png",
-    "48": "assets/infinity48.png",
-    "128": "assets/infinity128.png"
+    "16": "infinity.png",
+    "48": "infinity.png",
+    "128": "infinity.png"
   },
   "manifest_version": 2,
   "name": "Browser Clock",
