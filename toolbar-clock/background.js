@@ -1,26 +1,39 @@
 function getHoursImageData(date) {
   function create(size) {
     var canvas = document.createElement('canvas');
-	var h = date.getHours();
-    //canvas.textContent = (((date.getHours() + 11) % 12) + 1)+dd + ':' + getMinutesText(date);
-    //canvas.setAttribute('width', size);
-    //canvas.setAttribute('height', size);
+
     var context = canvas.getContext('2d');
-    //context.font = 'bold ' + (size * 0.67) + 'px \'Lucida Grande\'';
+ 	
+	//idea for am, pm background changes color
+	//context.fillStyle = "#000000";
+	//context.fillRect(0,0,38,38);
 	
-	context.font = 'bold ' + (size * 0.45) + 'pt Calibri';
+	//idea for adding a or p for am pm in icon
+	//var h = date.getHours();
+	//var dd = "a";
+    //if (h >= 12) {
+    //    dd = "p";
+    //}
+	
+	var h = (((date.getHours() + 11) % 12) + 1);
+
+	var ho = -3;
+	var mo = 0;
+	if (h > 9) {
+		ho = -2;
+		mo = 0;
+	}
+
+	
+	context.font = ' ' + (size * 0.45) + 'pt Lucida Sans Unicode';
     context.textAlign = 'center';
-    //context.textBaseline = 'middle';
-	
-	var dd = "a";
-    if (h >= 12) {
-        dd = "p";
-    }
-	
+
+	//idea for am, pm background change font color
 	//context.fillStyle="black";
+	//context.fillStyle ="#ffffff";
 	
-    context.fillText((((date.getHours() + 11) % 12) + 1)+dd ,size/2, size/3+0.5);
-	context.fillText(getMinutesText(date),size/2,size);
+    context.fillText(h + ':' ,size/2 + ho , size/3+2);
+	context.fillText(getMinutesText(date),size/2 + mo,size);
     
 	
 	return context.getImageData(0, 0, size, size);
