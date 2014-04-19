@@ -17,6 +17,8 @@ Original 24-hour version source-code:
 https://github.com/kalman/chrome-extensions/tree/master/browser-clock
 
 Modified 12-hour version source-code:
-https://github.com/durango99/chrome-extensions/tree/master/browser-clock
+https://github.com/durango99/chrome-extensions/tree/master/toolbar-clock
+
+
 
 
