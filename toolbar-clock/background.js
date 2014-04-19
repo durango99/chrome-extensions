@@ -2,12 +2,13 @@ function getHoursImageData(date) {
   function create(size) {
     var canvas = document.createElement('canvas');
 	var h = date.getHours();
-    //canvas.textContent = ((; //+ ':' + getMinutesText(date);
+    //canvas.textContent = (((date.getHours() + 11) % 12) + 1)+dd + ':' + getMinutesText(date);
     //canvas.setAttribute('width', size);
     //canvas.setAttribute('height', size);
     var context = canvas.getContext('2d');
     //context.font = 'bold ' + (size * 0.67) + 'px \'Lucida Grande\'';
-	context.font = 'bold';
+	
+	context.font = 'bold ' + (size * 0.45) + 'pt Calibri';
     context.textAlign = 'center';
     //context.textBaseline = 'middle';
 	
@@ -16,9 +17,9 @@ function getHoursImageData(date) {
         dd = "p";
     }
 	
-	context.fillStyle="black";
+	//context.fillStyle="black";
 	
-    context.fillText((((date.getHours() + 11) % 12) + 1)+dd ,size/2, size/3+.5);
+    context.fillText((((date.getHours() + 11) % 12) + 1)+dd ,size/2, size/3+0.5);
 	context.fillText(getMinutesText(date),size/2,size);
     
 	
@@ -55,7 +56,7 @@ function update() {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.browserAction.setBadgeBackgroundColor({color: '#000'});
+  //chrome.browserAction.setBadgeBackgroundColor({color: '#000'});
   update();
 
   // Set up an alarm to fire on the soonest minute mark > 60 seconds in the

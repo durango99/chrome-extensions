@@ -9,14 +9,14 @@
       "38": "infinity.png"
     }
   },
-  "description": "A clock for your browser toolbar",
+  "description": "A digital clock for your browser toolbar",
   "icons": {
     "16": "infinity.png",
     "48": "infinity.png",
     "128": "infinity.png"
   },
   "manifest_version": 2,
-  "name": "Browser Clock (12-hour version)",
+  "name": "Toolbar Digital Clock (12-hour version)",
   "permissions": ["alarms", "storage"],
-  "version": "1.3"
+  "version": "1.4"
 }
