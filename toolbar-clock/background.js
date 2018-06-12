@@ -1,3 +1,19 @@
+function GetIni( name ){        
+    if( IsSet(localStorage[name]) ){
+      return localStorage[name];
+    }else{
+      return GetDefIni(name);
+    } 
+}
+
+function GetDefIni( name ){    
+}
+  
+function IsSet(varname){
+	return typeof varname != "undefined";
+}
+
+
 function getHoursImageData(date) {
   function create(size) {
     var canvas = document.createElement('canvas');
@@ -28,8 +44,10 @@ function getHoursImageData(date) {
 	context.font = ' ' + (size * 0.45) + 'pt Lucida Sans Unicode';
     context.textAlign = 'center';
 
+	color = GetIni("font_color");
+	
 	//idea for am, pm background change font color
-	//context.fillStyle="black";
+	context.fillStyle=color;
 	//context.fillStyle ="#ffffff";
 	
     context.fillText(h + ':' ,size/2 + ho , size/3+2);
@@ -61,6 +79,7 @@ function quantizeMinutes(date) {
 }
 
 function update() {
+	
   var now = new Date();
   var nearestMinute = quantizeMinutes(now).round;
   chrome.browserAction.setIcon({imageData: getHoursImageData(nearestMinute)});
